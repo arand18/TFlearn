@@ -20,6 +20,6 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "testpipeline"
-  location = centralus
+  location = Central US
 
 }
