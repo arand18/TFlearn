@@ -6,7 +6,7 @@ terraform {
       version = "~> 3.0.2"
     }
   }
-  backend remote {
+  backend "remote" {
     organization = "AlishaTForg"
     workspaces {
       name = "Terraformgithubactions"
