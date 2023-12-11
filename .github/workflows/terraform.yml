@@ -89,9 +89,5 @@ jobs:
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-<<<<<<< HEAD
-      if: github.ref == 'refs/heads/"main"' 
-=======
       if: github.ref == 'refs/heads/"main"'
->>>>>>> 686971cc229fe9e97129468e4dc6016d4bd37eb8
       run: terraform apply -auto-approve -input=false
