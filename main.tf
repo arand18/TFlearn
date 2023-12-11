@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "testpipelinehopeyouwork"
+  name     = "testpipeline"
   location = "centralus"
 
 }
