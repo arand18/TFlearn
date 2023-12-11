@@ -1,14 +1,19 @@
 terraform {
-  backend "azurerm" {
-    resource_group_name = "TerraformRG"
-    storage_account_name = "terraformtestaccount"
-    container_name = "tfstatefile"
-    key = "dev.terraform.tfstate"
+  required_version = "~>= 1.6.5"
+  required_providers {
+    azurerm = {
+        source = "hashicorp/azurerm"
+        version = "~> 3.0.2"
+    }
   }
-
+    cloud {
+    organization = "AlishaTForg"
+    workspaces {
+      name = "Terraformgithubactions"
+    }
+  }
 }
-module "RG" {
-  source = "./modules/RG"
-  rgname = var.rgname
-  location = var.location
+
+provider "azurerm" {
+  features {}
 }
