@@ -25,7 +25,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_storage_account" "testing" {
-  name                     = "tfteststorageacct"
+  name                     = "alishas-magical-tf-storageaccount"
   resource_group_name      = var.azurerm_resource_group_name
   location                 = var.location
   account_tier             = "Standard"
