@@ -19,8 +19,19 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "testpipeline"
-  location = "centralus"
+  name     = var.azurerm_resource_group_name.rg
+  location = var.location
+
+}
+
+resource "azurerm_storage_account" "testing" {
+  name                     = "tfteststorageacct"
+  resource_group_name      = var.azurerm_resource_group_name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  access_tier              = "hot"
+  account_kind             = "BlobStorage"
 
 }
 
