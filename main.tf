@@ -25,7 +25,7 @@ locals {
 
   storagacct_name = format("storageacct%s%s000", local.assetname, local.enviroment)
 
-  resource_name = format("%s-%s-$s", local.assetname, local.enviroment, local.location)
+  resource_name = format("%s-%s", local.assetname, local.enviroment)
   storage_name  = format("storage%s", local.assetname)
 }
 resource "azurerm_resource_group" "rg" {
