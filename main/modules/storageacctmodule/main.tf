@@ -23,7 +23,7 @@ sa_name = format("storageacct%s%s000", var.assetname, var.enviroment)
 }
 
 
-resource "azurerm_storage_account" "storage" {
+resource "azurerm_storage_account" "storageaccount" {
   count = var.instance_count
 
   name = "${local.sa_name}${count.index + 1}"
