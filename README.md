@@ -18,4 +18,4 @@ In this project I plan to deploy various IaC solutions via Terraform and then te
 * required approvers
 * storage account deployment
 * terraform unit testing for storage account configurations
-* tf modules
+* tf module deployments using personal gihub repo terraform-modules
