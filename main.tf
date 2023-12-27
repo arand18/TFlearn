@@ -19,14 +19,14 @@ provider "azurerm" {
 }
 
 locals {
-  assetname = "alisha"
+  assetname  = "alisha"
   enviroment = "test"
-  location = "Centralus"
+  location   = "Centralus"
 
-storagacct_name = format("storageacct%s%s000", local.assetname, local.enviroment)
+  storagacct_name = format("storageacct%s%s000", local.assetname, local.enviroment)
 
   resource_name = format("%s-%s-$s", local.assetname, local.enviroment, local.location)
-  storage_name =  format("storage%s", local.assetname)
+  storage_name  = format("storage%s", local.assetname)
 }
 resource "azurerm_resource_group" "rg" {
   name     = "${local.resource_name}-rg-1"
