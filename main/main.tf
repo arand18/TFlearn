@@ -36,8 +36,8 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_storage_account" "storageact" {
   name                     = "${local.storage_name}001"
-  resource_group_name      = var.azurerm_resource_group_name
-  location                 = var.location
+  resource_group_name      = azurerm_resource_group_name.resource_group_name
+  location                 = azurerm_resource_group.resource_group_location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   access_tier              = "Hot"
