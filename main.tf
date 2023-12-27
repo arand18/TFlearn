@@ -19,25 +19,16 @@ provider "azurerm" {
 }
 
 locals {
-  assetname  = "alisha"
-  enviroment = "test"
-  location   = "Centralus"
-
-  storagacct_name = format("storageacct%s%s000", local.assetname, local.enviroment)
-
-  resource_name = format("%s-%s", local.assetname, local.enviroment)
-  storage_name  = format("storage%s", local.assetname)
-}
-resource "azurerm_resource_group" "rg" {
-  name     = "${local.resource_name}-rg-1"
-  location = local.location
-
+  sa_name = format("storageacct%s%s000", var.assetname, var.enviroment)
 }
 
-resource "azurerm_storage_account" "storageact" {
-  name                     = "${local.storage_name}001"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
+
+resource "azurerm_storage_account" "storageaccount" {
+  count = var.instance_count
+
+  name                     = "${local.sa_name}001"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   access_tier              = "Hot"
